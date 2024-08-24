@@ -49,6 +49,47 @@ This project performs Density Functional Theory (DFT) calculations on two-dimens
 
 4. Results will be saved in the `results` directory, organized by material.
 
+To download the pseudopotential files required for the DFT calculations in your Python script, you can use the following shell script. This script utilizes `wget` to download the files from a repository like the Quantum ESPRESSO pseudopotential library.
+
+### Shell Script to Download Pseudopotentials
+
+```bash
+#!/bin/bash
+
+# Create a directory for pseudopotentials
+mkdir -p pseudopotentials
+
+# Download pseudopotentials for MoS2
+wget -O pseudopotentials/Mo.pbe-spn-kjpaw_psl.1.0.0.UPF "https://www.quantum-espresso.org/upf_files/Mo.pbe-spn-kjpaw_psl.1.0.0.UPF"
+wget -O pseudopotentials/S.pbe-n-kjpaw_psl.1.0.0.UPF "https://www.quantum-espresso.org/upf_files/S.pbe-n-kjpaw_psl.1.0.0.UPF"
+
+# Download pseudopotentials for NbSe2
+wget -O pseudopotentials/Nb.pbe-spn-kjpaw_psl.1.0.0.UPF "https://www.quantum-espresso.org/upf_files/Nb.pbe-spn-kjpaw_psl.1.0.0.UPF"
+wget -O pseudopotentials/Se.pbe-n-kjpaw_psl.1.0.0.UPF "https://www.quantum-espresso.org/upf_files/Se.pbe-n-kjpaw_psl.1.0.0.UPF"
+
+# Download pseudopotentials for Si
+wget -O pseudopotentials/Si.pbe-n-kjpaw_psl.1.0.0.UPF "https://www.quantum-espresso.org/upf_files/Si.pbe-n-kjpaw_psl.1.0.0.UPF"
+
+# Download pseudopotentials for Ge
+wget -O pseudopotentials/Ge.pbe-n-kjpaw_psl.1.0.0.UPF "https://www.quantum-espresso.org/upf_files/Ge.pbe-n-kjpaw_psl.1.0.0.UPF"
+
+echo "Pseudopotentials downloaded successfully to the pseudopotentials directory."
+```
+
+### Instructions:
+
+1. Save this script as `download_pseudopotentials.sh`.
+2. Give the script execution permission:
+   ```bash
+   chmod +x download_pseudopotentials.sh
+   ```
+3. Run the script to download the required pseudopotential files:
+   ```bash
+   ./download_pseudopotentials.sh
+   ```
+
+This script will create a directory called `pseudopotentials` and download all the necessary `.UPF` files into it. Ensure that the URLs used in the script are correct and correspond to the versions of the pseudopotentials you need. If you're using a different source for the pseudopotentials, replace the URLs accordingly.
+
 ## Project Structure
 
 ```
@@ -103,10 +144,25 @@ Contributions to this project are welcome. Please fork the repository and submit
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+Copyright (c) 2023 turingai.Co,ltd. Hangzhou, China
 
-- This project is based on the research paper: "Electronic structure of two-dimensional crystals from ab initio theory" by S. Lebègue and O. Eriksson.
+### Acknowledgments
+
+- This project is based on the research described in the following paper:
+
+  S. Lebègue and O. Eriksson, "Electronic structure of two-dimensional crystals from ab initio theory," Physical Review B, vol. 79, no. 11, p. 115409, 2009. DOI: 10.1103/PhysRevB.79.115409
+
 - Quantum ESPRESSO team for providing the DFT calculation software.
+
+## References
+
+[1] S. Lebègue and O. Eriksson, "Electronic structure of two-dimensional crystals from ab initio theory," Physical Review B, vol. 79, no. 11, p. 115409, 2009. [Online]. Available: https://journals.aps.org/prb/abstract/10.1103/PhysRevB.79.115409
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+Copyright (c) 2023 turingai.ltd
 
 ## Contact
 
